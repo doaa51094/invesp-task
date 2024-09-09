@@ -1,12 +1,9 @@
-// Get the modal
 const modal = document.getElementById("quickViewModal");
 const mainImage = document.getElementById("mainImage");
 const thumbnailsContainer = document.getElementById("thumbnailsContainer");
-
-// Get the <span> element that closes the modal
 const closeButton = document.querySelector(".close");
 
-// Event listener for all "Quick View" buttons
+//  "Quick View" buttons
 document.querySelectorAll(".view").forEach((button) => {
     button.addEventListener("click", function() {
         const productCard = this.closest(".product-card");
@@ -36,7 +33,7 @@ document.querySelectorAll(".view").forEach((button) => {
     });
 });
 
-// Close the modal when clicking on <span> (x)
+// Close the modal when clicking on (x)
 closeButton.addEventListener("click", function() {
     modal.style.display = "none";
 });
@@ -48,7 +45,6 @@ window.addEventListener("click", function(event) {
     }
 });
 
-// Close the modal when pressing the Escape key
 window.addEventListener("keydown", function(event) {
     if (event.key === "Escape" && modal.style.display === "flex") {
         modal.style.display = "none";
