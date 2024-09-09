@@ -1,0 +1,224 @@
+body {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+}
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+.view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 136, 204);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0; /* Start with height 0 */
+    opacity: 0; /* Fully transparent */
+    z-index: 2;
+    overflow: hidden; /* Ensure content is hidden during height transition */
+    transition: height 0.3s ease, opacity 0.3s ease; /* Smooth height and opacity transition */
+    cursor: pointer;
+}
+
+.product-card:hover .view {
+    height: 50px; /* Expand height */
+    opacity: 1; /* Fully visible */
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px;
+    text-align: center;
+}
+
+/* Close button */
+.close {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+
+
+.product-card .old-price {
+    position: relative;
+    margin: 0;
+    color: #999999;
+    font-size: 15px;
+    font-weight:600;
+}
+label:not(.visible), .product-card .old-price .price-label:not(.visible) {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.product-card .old-price:after {
+    content: "";
+    display: block;
+    border-top: 1px solid #999999;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.1em;
+    left: -3%;
+    right: -3%;
+}
+.product-card .special-price {
+    padding-right: 5px;
+    color: #444;
+    font-size: 15px;
+    font-weight:600;
+}
+.product-card {
+  height: 430px;
+  font-size: 13px;
+  position: relative;
+  text-align: center;
+  float: left;
+  line-height: 1.4;
+  background-color: white;
+  width: 300px;
+  margin: auto;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+.boosted-item-label {
+  position: absolute;
+  z-index: 1;
+  background: #66b5c2;
+  color: #fff;
+  left: 1px;
+  top: 20px;
+  padding: 3px 10px 0px;
+  height: 22px;
+}
+.boosted-item-label:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  border: 0.84552em solid #66b5c2;
+  z-index: -1;
+  right: -0.72em;
+  border-left-width: 0.5em;
+  border-right-color: transparent;
+}
+.image{
+    width:100%;
+    height: 250px;
+    object-fit: contain;
+}
+.product-card .contents .sale-label {
+  color: #ff6400;
+  text-transform: uppercase;
+  font-family: "maax_labmedium", sans-serif;
+ 
+  margin: 10px auto;
+  width: max-content;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.product-card .title {
+  color: rgb(89, 89, 89);
+  font-family: "maax_labregular", sans-serif;
+  font-size: 13px;
+  margin-bottom: 0;
+  overflow: hidden;
+  padding: 1em 1em 0.6em 1em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Container for the slideshow */
+.slideshow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* Style for the main large image */
+.main-image img {
+    /* width: 430px; */
+    height: 350px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Style for the thumbnail images */
+.thumbnails {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* max-width: 400px; */
+}
+
+.thumbnail {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.thumbnail:hover {
+    border: 2px solid rgb(98, 98, 98);
+}
+@media only screen and (max-width: 768px) {
+    .products{
+        gap: 10px;
+        justify-content: flex-start;
+    }
+    .modal-content{
+        width: 80%;
+    }
+    .main-image img {
+        height: auto;
+        width: 80%;
+    }
+    .thumbnail{
+        width: 25%;
+    }
+
+}
+
